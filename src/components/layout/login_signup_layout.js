@@ -38,10 +38,6 @@ class loginSingUpPage extends Component {
   
 
   nextSlide() {
-    // this.setState({
-    //   position: this.state.position + 1
-    // })
-
     this.setState((state) => {
       return {
         position: ((state.position) + 1) % totalSlides
