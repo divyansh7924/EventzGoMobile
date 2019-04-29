@@ -14,11 +14,28 @@ class loginSingUpPage extends Component {
     this.nextSlide = this.nextSlide.bind(this)
     this.prevSlide = this.prevSlide.bind(this)
     this.setSlide = this.setSlide.bind(this)
+    this.startTimer = this.startTimer.bind(this);
   }
 
   state = {
-    position: 0
+    position: 0,
+    count : 1
   }
+
+  tick () {
+    if(this.state.count < 3){
+          this.setState({count: (this.state.count + 1)})
+          this.nextSlide()
+    }
+    else (
+    this.state.count = 1)
+  }
+
+  startTimer () {
+    clearInterval(this.timer)
+    this.timer = setInterval(this.tick.bind(this), 2000)
+  }
+  
 
   nextSlide() {
     // this.setState({
@@ -40,12 +57,19 @@ class loginSingUpPage extends Component {
     })
   }
 
+  componentDidMount() {
+    window.addEventListener('load', this.startTimer);
+ }
+
+
   setSlide(position) {
     console.log(position);
     this.setState({
       position: position
     })
   }
+
+  
 
   render() {
     const { position } = this.state;
@@ -61,7 +85,7 @@ class loginSingUpPage extends Component {
             <div className="mySlides fade" id="one">
               <img src={slidePhotos[position].PHOTO}></img>
               <h3>{slidePhotos[position].DATA}</h3>
-              <p>{slidePhotos[position].SUBDATA}</p>
+              <div className="text"><p></p>{slidePhotos[position].SUBDATA}</div>
             </div>
 
            
