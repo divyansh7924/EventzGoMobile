@@ -69,7 +69,6 @@ class loginSingUpPage extends Component {
 
   render() {
     const { position } = this.state;
-    // const position  = this.state.position;
 
     console.log(this.state);
 
