@@ -9,12 +9,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 class chooseIt extends Component {
-  const stt = useStyles();
 
   render(){
     return (
         <div>
-          <Button variant="contained" color="secondary" className={stt.button}>
+          <Button variant="contained" color="secondary" className={useStyles.button}>
             Secondary
           </Button>
         </div>

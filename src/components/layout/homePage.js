@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
+import { action, createStore, StoreProvider, useStore, useActions } from 'easy-peasy';
 
-class homePage extends Component{
-    constructor(params) {
-        super(params)
-    }
+function HomePage() {
 
-    render(){
-        return(
-            <div>
-                hello
-            </div>
-        )
-    }
+    const userData = useStore(store => store.user.userData)
+    console.log(userData,1);
+
+    return (
+        <div>
+            hello {userData.displayName}
+        </div>
+    )
 }
 
-export default homePage
+export default HomePage
